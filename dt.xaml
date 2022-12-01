@@ -1,0 +1,53 @@
+<Window xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:system="clr-namespace:System;assembly=mscorlib" Width="600" MinWidth="600" MinHeight="600" WindowStartupLocation="CenterScreen">
+   <Window.Resources>
+      <system:String x:Key="Value_clock"></system:String>
+      <system:String x:Key="Value_counter1"></system:String>
+      <system:String x:Key="Value_counter2"></system:String>
+      <system:String x:Key="Value_elapsed1"></system:String>
+      <system:String x:Key="Value_elapsed2"></system:String>
+   </Window.Resources>
+
+   <Grid ShowGridLines="False" Margin="0">
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*"/>
+         <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Name="Clock" Content="{DynamicResource Value_clock}" Margin="10" HorizontalAlignment="Center"/>
+      <GroupBox Grid.Column="0" Grid.Row="1" Header="Right" HorizontalAlignment="Stretch" Padding="0,5" Margin="10">
+         <StackPanel Margin="10" HorizontalAlignment="Center">
+            <TextBox Name="TextBox_Numbers1" Text="100" Width="40" Height="20" TextAlignment="Center" MaxLength="4" />
+            <Grid>
+               <ProgressBar Name="ProgressBar1" Width="200" Height="20" />
+               <WrapPanel HorizontalAlignment="Center">
+                  <Label Name="Label_Counter1" Content="{DynamicResource Value_counter1}" />
+                  <TextBlock Text="{Binding ElementName=ProgressBar1, Path=Value, StringFormat={}{0:0}%}" VerticalAlignment="Center" />
+                  <Label Name="Label_Time1" Content="{DynamicResource Value_elapsed1}" />
+               </WrapPanel>
+            </Grid>
+            <Button Name="Button_1" Content="Run" Width="100" Height="40" Margin="0,5" IsEnabled="True" />
+         </StackPanel>
+      </GroupBox>
+      <GroupBox Grid.Column="1" Grid.Row="1" Header="Left" HorizontalAlignment="Stretch" Padding="0,5" Margin="10">
+         <StackPanel Margin="10" HorizontalAlignment="Center">
+            <TextBox Name="TextBox_Numbers2" Text="250" Width="40" Height="20" TextAlignment="Center" MaxLength="4" />
+            <Grid>
+               <ProgressBar Name="ProgressBar2" Width="200" Height="20" />
+               <WrapPanel HorizontalAlignment="Center">
+                  <Label Name="Label_Counter2" Content="{DynamicResource Value_counter2}" />
+                  <TextBlock Text="{Binding ElementName=ProgressBar2, Path=Value, StringFormat={}{0:0}%}" VerticalAlignment="Center" />
+                  <Label Name="Label_Time2" Content="{DynamicResource Value_elapsed2}" />
+               </WrapPanel>
+            </Grid>
+            <Button Name="Button_2" Content="Run" Width="100" Height="40" Margin="0,5" IsEnabled="True" />
+         </StackPanel>
+      </GroupBox>
+      <RichTextBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Name="Log" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Block.LineHeight="1" Padding="0,10,0,0" Background="Snow" Foreground="#000" FontFamily="Consolas" VerticalScrollBarVisibility="Auto"/>
+   </Grid>
+</Window>
