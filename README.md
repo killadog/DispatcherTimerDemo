@@ -1,5 +1,5 @@
 # DispatcherTimer Demo
-DispatcherTimer demonstration in [PowerShell](https://en.wikipedia.org/wiki/PowerShell) with [WPF](https://en.wikipedia.org/wiki/Windows_Presentation_Foundation)
+DispatcherTimer demonstration in [PowerShell](https://en.wikipedia.org/wiki/PowerShell) with [WPF](https://en.wikipedia.org/wiki/Windows_Presentation_Foundation) without freeze of GUI
 
 ![Powershell](https://img.shields.io/badge/Powershell-blue.svg)
 
